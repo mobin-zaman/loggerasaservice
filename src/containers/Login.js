@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./Login.css";
 
 export default function Login() {
 
@@ -15,13 +16,17 @@ export default function Login() {
     }
 
     return (
-        <div>
-            <h1>login</h1>
+        <div className="container">
+            <h1>Login to your account</h1>
             <form onSubmit={handleSubmit}>
+                <label htmlFor="email"><b>Email</b></label>
                 <input type = "text" placeholder="Enter email" name="email" required/>
+                <label htmlFor="password"><b>Password</b></label>
                 <input type = "password" placeholder="Enter password" name="password" required/>
 
-                <input type = "checkbox" checked="checked" name="remember"> Remember me</input>
+                <button type="submit">Login</button>
+
+                <input type = "checkbox" checked="checked" name="remember"/> <label htmlFor="remember"> Remember me </label>
             </form>
         </div>
     )
