@@ -13,15 +13,29 @@ export default function Signup() {
 
     const [confirmPassword, setConfirmPassword] = useState("");
 
+    const [errors, setErrors] = useState(null);
+
     const [toggleLogin, setToggleLogin] = useState(false);
 
 
-    function validateForm() {
-        return email.length > 0 && password.length>0;
+
+
+
+
+    function validatePasswords() {
+       if (password !== confirmPassword) {
+           setErrors({
+               password: 'passwords do not match',
+               confirmPassword: 'passwords do not match'
+           })
+       }
     }
 
     function handleSubmit(event) {
         event.preventDefault();
+
+        validatePasswords();
+
     }
 
     return (
@@ -32,15 +46,34 @@ export default function Signup() {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username" ><b>Useranme</b></label>
                 <input type = "text" placeholder="Enter username" name="username" onChange={e => setUsername(e.target.value)} required/>
+                {errors && errors.username && (
+                    <div className="error"> {errors.username}</div>
+                )}
+
                 <label htmlFor="email"><b>Email</b></label>
-                <input type = "text" placeholder="Enter email" name="email" onChange={e => setEmail(e.target.value)} required/>
+                <input type = "text" placeholder="Enter email" name="email"
+                       onChange={e => {setEmail(e.target.value);}}
+                       required/>
+                {errors && errors.email && (
+                    <div className="error"> {errors.password}</div>
+                )}
+
                 <label htmlFor="password"><b>Password</b></label>
                 <input type = "password" placeholder="Enter password" name="password" onChange={e => setPassword(e.target.value)} required/>
+                {errors && errors.password && (
+                   <div className="error"> {errors.password}</div>
+                )}
+
                 <label htmlFor="confirm_password"><b>Confirm Password</b></label>
                 <input type = "password" placeholder="Enter same password again" name="confirm_password" onChange={e=> setConfirmPassword(e.target.value)} required/>
-                <button type="submit" disabled={!validateForm()}>Login</button>
+                {errors && errors.password && (
+                    <div className="error"> {errors.password}</div>
+                )}
+
+                <button type="submit">Sign Up</button>
             </form>
-            <h10> Already have an account? <a style={{cursor: 'pointer'}} onClick={()=> setToggleLogin(true)}>Login here!</a></h10>
+                <button className="href" onClick={()=> setToggleLogin(true)}>Already have an account? <b color="blue">Login here!</b></button>
+
 
         </div>
         ) : <Login/>

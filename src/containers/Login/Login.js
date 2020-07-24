@@ -35,7 +35,7 @@ export default function Login() {
                         <input type="checkbox" checked="checked" name="remember"/> <label htmlFor="remember"> Remember
                         me </label>
                     </form>
-                    <h10> Don't have an account? <a style={{cursor: 'pointer'}} onClick={()=> setToggleSignUp(true)}>Sign up here!</a></h10>
+                    <button className='href' onClick={()=> setToggleSignUp(true)}>Don't have an account? <b color="blue">Sign up here!</b></button>
 
                 </div>
             ): <Signup/>

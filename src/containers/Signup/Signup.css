@@ -38,8 +38,17 @@ button {
     font-size: medium;
 }
 
+.href {
+   border: 0;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    margin-top: 40px;
+
+}
+
 .container {
-    margin: auto;
+    margin-top: -105px;
     padding: 100px;
     width: 40%;
 }
