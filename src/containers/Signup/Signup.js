@@ -17,6 +17,7 @@ export default function Signup() {
 
     const [toggleLogin, setToggleLogin] = useState(false);
 
+    const [signUpSuccess, setSignUpSuccess] = useState("");
 
 
 
@@ -28,18 +29,45 @@ export default function Signup() {
                password: 'passwords do not match',
                confirmPassword: 'passwords do not match'
            })
+           return false;
+       }
+       else {
+           setErrors(null);
+           return true;
        }
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
 
-        validatePasswords();
+       if( validatePasswords()) {
 
-        apiSignUp(username, email, password);
+        try{
+            const response = await apiSignUp(username, email, password);
 
+            console.log("response: ", response.status);
 
+            if(response.status === 201) {
+                setSignUpSuccess('Account creation successful, you can proceed to login');
+                setToggleLogin(true);
+            }
+
+        } catch(e){
+            console.log("ERROR: ", e.response.data.email[0]);
+
+            const {data} = e.response;
+
+            if(data.email) {
+                setErrors({
+                    email: data.email[0]
+                })
+            }
+
+        }
     }
+    }
+
+
 
     return (
         <>
@@ -58,7 +86,7 @@ export default function Signup() {
                        onChange={e => {setEmail(e.target.value);}}
                        required/>
                 {errors && errors.email && (
-                    <div className="error"> {errors.password}</div>
+                    <div className="error"> {errors.email}</div>
                 )}
 
                 <label htmlFor="password"><b>Password</b></label>
@@ -69,8 +97,8 @@ export default function Signup() {
 
                 <label htmlFor="confirm_password"><b>Confirm Password</b></label>
                 <input type = "password" placeholder="Enter same password again" name="confirm_password" onChange={e=> setConfirmPassword(e.target.value)} required/>
-                {errors && errors.password && (
-                    <div className="error"> {errors.password}</div>
+                {errors && errors.confirmPassword && (
+                    <div className="error"> {errors.confirmPassword}</div>
                 )}
 
                 <button type="submit">Sign Up</button>
@@ -79,7 +107,7 @@ export default function Signup() {
 
 
         </div>
-        ) : <Login/>
+        ) : <Login signUpSuccess={signUpSuccess}/>
         }
 
         </>

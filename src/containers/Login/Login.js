@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./Login.css";
 import Signup from "../Signup/Signup";
 
-export default function Login() {
+export default function Login({signUpSuccess}) {
 
     const [email, setEmail] = useState("")
 
@@ -23,6 +23,7 @@ export default function Login() {
         <>
             {!toggleSignUp  ?(
                 <div className="container">
+                    {signUpSuccess&&(<h4>{signUpSuccess}</h4>)} 
                     <h1>Login to your account</h1>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="email"><b>Email</b></label>

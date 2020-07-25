@@ -6,13 +6,12 @@ import axios from 'axios';
 
 
 
-export async  function signUp(username, email, password) {
+export function signUp(username, email, password) {
 
-        const response =await axios.post(`/api/auth/register`, {
+        return axios.post(`/api/auth/register`, {
             name: username,
             email,
             password
         })
 
-        console.log("response: ", response);
 }
