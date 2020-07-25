@@ -1,17 +1,18 @@
 import axios from 'axios';
 
-export default class ApiService {
 
-    BASE_URL = 'http://localhost:8000/api';
 
-    async signUp(username, email, password) {
+// const BASE_URL = 'http://192.168.0.100:8000/api';
 
-        const response =await axios.post('/auth/register', {
+
+
+export async  function signUp(username, email, password) {
+
+        const response =await axios.post(`/api/auth/register`, {
             name: username,
             email,
             password
         })
 
         console.log("response: ", response);
-    }
 }

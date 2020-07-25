@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Signup.css";
 import Login from "../Login/Login";
-import ApiService from "../../apiServices/apiService";
+import {signUp as apiSignUp} from "../../apiServices/apiService";
 
 export default function Signup() {
 
@@ -36,6 +36,9 @@ export default function Signup() {
 
         validatePasswords();
 
+        apiSignUp(username, email, password);
+
+
     }
 
     return (
@@ -59,7 +62,7 @@ export default function Signup() {
                 )}
 
                 <label htmlFor="password"><b>Password</b></label>
-                <input type = "password" placeholder="Enter password" name="password" onChange={e => setPassword(e.target.value)} required/>
+                <input type = "password" placeholder="Enter password" name="password" onChange={e => {setPassword(e.target.value);console.log("clicked")}} required/>
                 {errors && errors.password && (
                    <div className="error"> {errors.password}</div>
                 )}
