@@ -3,7 +3,7 @@ import "./Login.css";
 import Signup from "../Signup/Signup";
 import { login } from "../../apiServices/apiService";
 
-export default function Login({ signUpSuccess }) {
+export default function Login({ signUpSuccess, unauthenticatedMessage }) {
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
@@ -20,18 +20,28 @@ export default function Login({ signUpSuccess }) {
     try {
       const response = await login(email, password);
       console.log("response from login: ", response);
+
+      if (response.status === 200) {
+        localStorage.setItem("token", response.data.access_token);
+
+        console.log(
+          "local_storage access_token: ",
+          localStorage.getItem("token")
+        );
+      }
     } catch (e) {
       console.log("error from login: ", e.response);
-      if(e.response.status===422) {
-          setErrors({
-              email: e.response.data.email[0]
-          });
+      if (e.response.status === 422) {
+        setErrors({
+          email: e.response.data.email[0],
+        });
       }
 
-      if(e.response.status===401) {
-          setErrors({
-              credentialError: 'email or password is wrong, please check the credentials'
-          })
+      if (e.response.status === 401) {
+        setErrors({
+          credentialError:
+            "email or password is wrong, please check the credentials",
+        });
       }
     }
   }
@@ -41,13 +51,13 @@ export default function Login({ signUpSuccess }) {
       {!toggleSignUp ? (
         <div className="container">
           {signUpSuccess && <h4>{signUpSuccess}</h4>}
+          {unauthenticatedMessage && <h4>{unauthenticatedMessage}</h4>}
+          {console.log("Loggin to check the props are passing or not: ",unauthenticatedMessage)}
           <h1>Login to your account</h1>
 
           {errors && errors.credentialError && (
-              <div className="error"> {errors.credentialError}</div>
-            )}
-
-
+            <div className="error"> {errors.credentialError}</div>
+          )}
 
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">
