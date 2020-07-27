@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Signup.css";
+import style from "./Signup.module.css";
 import Login from "../Login/Login";
-import { signUp as apiSignUp } from "../../apiServices/apiService";
+import { signUp as apiSignUp } from "../../../apiServices/apiService";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -63,8 +63,10 @@ export default function Signup() {
   return (
     <>
       {!toggleLogin ? (
-        <div className="container">
+        <div className={style.container}>
+
           <h1> Sign up for a new account</h1>
+          
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">
               <b>Useranme</b>
@@ -129,7 +131,7 @@ export default function Signup() {
 
             <button type="submit">Sign Up</button>
           </form>
-          <button className="href" onClick={() => setToggleLogin(true)}>
+          <button className={style.href} onClick={() => setToggleLogin(true)}>
             Already have an account? <b color="blue">Login here!</b>
           </button>
         </div>

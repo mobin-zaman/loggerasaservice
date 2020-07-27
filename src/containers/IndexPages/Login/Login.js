@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Login.css";
+import style from "./Login.module.css";
 import Signup from "../Signup/Signup";
-import { login } from "../../apiServices/apiService";
+import { login } from "../../../apiServices/apiService";
 
 export default function Login({ signUpSuccess, unauthenticatedMessage }) {
   const [email, setEmail] = useState("");
@@ -49,10 +49,11 @@ export default function Login({ signUpSuccess, unauthenticatedMessage }) {
   return (
     <>
       {!toggleSignUp ? (
-        <div className="container">
+        <div className={style.container}>
           {signUpSuccess && <h4>{signUpSuccess}</h4>}
           {unauthenticatedMessage && <h4>{unauthenticatedMessage}</h4>}
           {console.log("Loggin to check the props are passing or not: ",unauthenticatedMessage)}
+          
           <h1>Login to your account</h1>
 
           {errors && errors.credentialError && (
@@ -91,7 +92,7 @@ export default function Login({ signUpSuccess, unauthenticatedMessage }) {
                         <input type="checkbox" checked="checked" name="remember"/> <label htmlFor="remember"> Remember
                         me </label> */}
           </form>
-          <button className="href" onClick={() => setToggleSignUp(true)}>
+          <button className={style.href} onClick={() => setToggleSignUp(true)}>
             Don't have an account? <b color="blue">Sign up here!</b>
           </button>
         </div>

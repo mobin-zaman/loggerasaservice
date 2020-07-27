@@ -2,8 +2,8 @@ import React from "react";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import Login from "../containers/Login/Login";
 import ApplicationDashBoard from "../containers/ApplicationDashBoard/ApplicationDashBoard";
+import IndexPage from "../containers/IndexPages/indexPage";
 
 function checkSignedIn() {
   console.log("getting the token: ", localStorage.getItem("token"));
@@ -24,7 +24,7 @@ const RequireAuth = ({ children }) => {
 
 const AppRouter = () => (
   <Switch>
-      <Route exact path="/"> <Login/></Route>
+      <Route exact path="/"> <IndexPage/></Route>
 
     <RequireAuth>
         <Route exact path="/applications"><ApplicationDashBoard/></Route>

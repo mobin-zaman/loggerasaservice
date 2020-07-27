@@ -44,8 +44,15 @@ button {
     width: 40%;
 }
 
-.signupdiv {
-    margin: auto;
+
+button {
+    background-color: #0092C6;
+    color: white;
+    padding: 14px 20px;
+    /* cursor: pointer; */
+    width: 100%;
+    border: none;
+    font-size: medium;
 }
 
 .href {
