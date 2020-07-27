@@ -64,9 +64,8 @@ export default function Signup() {
     <>
       {!toggleLogin ? (
         <div className={style.container}>
-
           <h1> Sign up for a new account</h1>
-          
+
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">
               <b>Useranme</b>

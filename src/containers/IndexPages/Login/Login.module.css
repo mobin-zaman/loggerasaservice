@@ -1,17 +1,18 @@
 /* form {
     border: 3px solid #f1f1f1
 } */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body {
     background-color: #181A1B;
 }
 
 h1 {
-   font-style: italic;
    text-align: center;
    vertical-align: middle;
    padding: 50px;
    margin: auto;
+   font-family: Open Sans;
 }
 
 input[type=text], input[type=password] {

@@ -52,8 +52,11 @@ export default function Login({ signUpSuccess, unauthenticatedMessage }) {
         <div className={style.container}>
           {signUpSuccess && <h4>{signUpSuccess}</h4>}
           {unauthenticatedMessage && <h4>{unauthenticatedMessage}</h4>}
-          {console.log("Loggin to check the props are passing or not: ",unauthenticatedMessage)}
-          
+          {console.log(
+            "Loggin to check the props are passing or not: ",
+            unauthenticatedMessage
+          )}
+
           <h1>Login to your account</h1>
 
           {errors && errors.credentialError && (

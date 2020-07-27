@@ -1,11 +1,14 @@
-import React from 'react';
-import Login from './Login/Login';
+import React from "react";
+import Login from "./Login/Login";
+import style from "./indexPage.module.css";
 
 export default function indexPage() {
-    return (
-        <>
-        <nav>log with ease</nav>
-        <Login/>
-        </>
-    )
+  return (
+    <>
+      <nav className={style.titlebar}>
+        <span className={style.titlebartext}>LOG WITH EASE</span>
+      </nav>
+      <Login />
+    </>
+  );
 }

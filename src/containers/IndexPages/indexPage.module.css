@@ -1,0 +1,17 @@
+@font-face{
+    font-family: bariol;
+    src: url(bariol_bold-webfont.woff) 
+}
+
+.titlebar {
+    text-align: center;
+    font-size: 90px;
+    padding: 10px;
+    border: 1px solid;
+}
+
+.titlebartext {
+    font-family: bariol;
+    color: white;
+    font-stretch: condensed;
+}

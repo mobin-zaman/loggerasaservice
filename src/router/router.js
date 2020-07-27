@@ -7,16 +7,20 @@ import IndexPage from "../containers/IndexPages/indexPage";
 
 function checkSignedIn() {
   console.log("getting the token: ", localStorage.getItem("token"));
-  const result =  !!localStorage.getItem("token");
+  const result = !!localStorage.getItem("token");
   console.log("Result: ", result);
   return result;
 }
 
 const RequireAuth = ({ children }) => {
   if (checkSignedIn()) {
-    return <Redirect to={{
-        pathname: '/',
-    }} />;
+    return (
+      <Redirect
+        to={{
+          pathname: "/",
+        }}
+      />
+    );
   }
 
   return children;
@@ -24,10 +28,15 @@ const RequireAuth = ({ children }) => {
 
 const AppRouter = () => (
   <Switch>
-      <Route exact path="/"> <IndexPage/></Route>
+    <Route exact path="/">
+      {" "}
+      <IndexPage />
+    </Route>
 
     <RequireAuth>
-        <Route exact path="/applications"><ApplicationDashBoard/></Route>
+      <Route exact path="/applications">
+        <ApplicationDashBoard />
+      </Route>
     </RequireAuth>
   </Switch>
 );
