@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./Login.module.css";
 import Signup from "../Signup/Signup";
 import { login } from "../../../apiServices/apiService";
+import { useHistory } from "react-router-dom";
 
 export default function Login({ signUpSuccess, unauthenticatedMessage }) {
   const [email, setEmail] = useState("");
@@ -11,9 +12,11 @@ export default function Login({ signUpSuccess, unauthenticatedMessage }) {
   const [toggleSignUp, setToggleSignUp] = useState(false);
 
   const [errors, setErrors] = useState(null);
+  const history = useHistory();
 
   async function handleSubmit(event) {
     event.preventDefault(); //this prevents the page from refreshing
+
 
     setErrors(null);
 
@@ -28,7 +31,12 @@ export default function Login({ signUpSuccess, unauthenticatedMessage }) {
           "local_storage access_token: ",
           localStorage.getItem("token")
         );
+
+       history.push("/applications");
+       console.log("history pushed");
+
       }
+
     } catch (e) {
       console.log("error from login: ", e.response);
       if (e.response.status === 422) {

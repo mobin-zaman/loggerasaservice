@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./Signup.module.css";
-import Login from "../Login/Login";
+import Login from "../Login/Login.jsx";
 import { signUp as apiSignUp } from "../../../apiServices/apiService";
 
 export default function Signup() {

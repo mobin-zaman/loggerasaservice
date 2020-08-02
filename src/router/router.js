@@ -2,18 +2,12 @@ import React from "react";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import ApplicationDashBoard from "../containers/ApplicationDashBoard/ApplicationDashBoard";
+import ApplicationDashBoard from "../containers/ApplicationDashBoard/ApplicationDashBoard.jsx";
 import IndexPage from "../containers/IndexPages/indexPage";
-
-function checkSignedIn() {
-  console.log("getting the token: ", localStorage.getItem("token"));
-  const result = !!localStorage.getItem("token");
-  console.log("Result: ", result);
-  return result;
-}
+import { authenticated } from "../Auth/authenticatedChecker";
 
 const RequireAuth = ({ children }) => {
-  if (checkSignedIn()) {
+  if (!authenticated()) {
     return (
       <Redirect
         to={{
@@ -29,7 +23,6 @@ const RequireAuth = ({ children }) => {
 const AppRouter = () => (
   <Switch>
     <Route exact path="/">
-      {" "}
       <IndexPage />
     </Route>
 
