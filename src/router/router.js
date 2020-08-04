@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 import ApplicationDashBoard from "../containers/ApplicationDashBoard/ApplicationDashBoard.jsx";
 import IndexPage from "../containers/IndexPages/indexPage";
-import { authenticated } from "../Auth/authenticatedChecker";
+import { authenticated } from "../apiServices/Auth/authenticatedChecker";
 
 const RequireAuth = ({ children }) => {
   if (!authenticated()) {

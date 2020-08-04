@@ -61,7 +61,7 @@ export default function Login({ signUpSuccess, unauthenticatedMessage }) {
           {signUpSuccess && <h4>{signUpSuccess}</h4>}
           {unauthenticatedMessage && <h4>{unauthenticatedMessage}</h4>}
           {console.log(
-            "Loggin to check the props are passing or not: ",
+            "Logging to check the props are passing or not: ",
             unauthenticatedMessage
           )}
 

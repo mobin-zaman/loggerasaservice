@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getAuthenticationHeader } from "./Auth/authenticatedChecker";
 
 // const BASE_URL = 'http://192.168.0.100:8000/api';
 
@@ -15,4 +16,8 @@ export function login(email, password) {
     email,
     password,
   });
+}
+
+export async function getAppicationList() {
+  return axios.get("/api/applications/", await getAuthenticationHeader());
 }
