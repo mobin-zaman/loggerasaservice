@@ -28,7 +28,7 @@ export async function getAuthenticationHeader() {
       localStorage.setItem("token", response.data.access_token);
     }
 
-    console.log("response: ", response);
+    // console.log("response: ", response);
 
     return {
       headers: { Authorization: getBearerToken() },

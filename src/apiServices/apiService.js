@@ -21,3 +21,14 @@ export function login(email, password) {
 export async function getAppicationList() {
   return axios.get("/api/applications/", await getAuthenticationHeader());
 }
+
+export async function addApplication(name, description) {
+  return axios.post(
+    "/api/applications",
+    {
+      name,
+      description,
+    },
+    await getAuthenticationHeader()
+  );
+}

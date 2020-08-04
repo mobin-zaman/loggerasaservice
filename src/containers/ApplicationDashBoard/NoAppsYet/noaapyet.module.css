@@ -1,0 +1,11 @@
+
+.container {
+    margin: auto;
+    padding: 100px;
+    width: 40%;
+    color: whitesmoke;
+}
+
+.button {
+    size: 5px;
+}

@@ -2,7 +2,10 @@ import React, {useEffect, useState} from "react";
 import GeneralNavBar from "../GeneralNavBar/GeneralNavBar";
 import {getAppicationList} from "../../apiServices/apiService";
 import {useHistory} from "react-router";
-export default function ApplicationDashBoard() {
+import NoAppsYet from "./NoAppsYet/NoAppsYet";
+
+
+export default function ApplicationListPage() {
 
     const [applications, setApplication] = useState(null);
     const history = useHistory();
@@ -11,6 +14,8 @@ export default function ApplicationDashBoard() {
         async function getData(){
             try {
             const response = await getAppicationList();
+            console.log("response here: ",response);
+            setApplication(response.data);
             } catch(e) {
                history.push("/");
             }
@@ -22,7 +27,10 @@ export default function ApplicationDashBoard() {
   return (
       <div>
           <GeneralNavBar/>
-
+          {/*first let's try you don't have any app yet*/}
+          <NoAppsYet/>
       </div>
+
   );
+
 }
