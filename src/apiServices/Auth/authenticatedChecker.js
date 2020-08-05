@@ -37,5 +37,7 @@ export async function getAuthenticationHeader() {
     console.log("ERROR: getAuthToken: ", e.response);
     localStorage.removeItem("token");
     throw new Error("not authenticated");
+    //TODO: add window.location here
+    //window.location="/"
   }
 }

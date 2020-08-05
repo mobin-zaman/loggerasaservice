@@ -8,6 +8,7 @@ const CreateApplicationFrom = () => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [errors, setErrors] = useState(null);
 
     const handleSubmit = async( event ) => {
         event.preventDefault();
@@ -20,12 +21,15 @@ const CreateApplicationFrom = () => {
                console.log("Hoia gese");
                console.log("Data: ", response.data);
 
-               <ApplicationDashBoard name={name} />
            }
 
         } catch (e) {
            console.log("Error: ",e);
-           alert("something went wrong");
+           if(e.response.status === 409) {
+                setErrors({
+                    name: "You already have an application by this name"
+                })
+           }
         }
     }
 
@@ -49,6 +53,10 @@ const CreateApplicationFrom = () => {
                         onChange={(e) => setName(e.target.value)}
                         required
                     />
+                    {errors && errors.name && (
+                        <div className="error"> {errors.name}</div>
+                    )}
+
 
                     <label htmlFor="description">
                         <b>Description </b>
