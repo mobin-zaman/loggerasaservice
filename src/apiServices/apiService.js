@@ -18,7 +18,7 @@ export function login(email, password) {
   });
 }
 
-export async function getAppicationList() {
+export async function getApplicationList() {
   return axios.get("/api/applications/", await getAuthenticationHeader());
 }
 

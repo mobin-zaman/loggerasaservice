@@ -24,7 +24,6 @@ const CreateApplicationFrom = () => {
            const response = await addApplication(name, description);
 
            if(response.status === 201) {
-               console.log("Hoia gese");
                console.log("Data: ", response.data);
                history.push(`/applications/dashboard/${response.data.id}`)
            }
