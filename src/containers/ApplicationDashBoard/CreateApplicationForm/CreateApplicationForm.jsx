@@ -3,15 +3,21 @@ import style from "../../IndexPages/Login/Login.module.css";
 import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
 import {addApplication} from "../../../apiServices/apiService";
 import ApplicationDashBoard from "../ApplicationDashBoard/ApplicationDashBoard";
+import {useHistory} from "react-router";
 
 const CreateApplicationFrom = () => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState(null);
+    const [submittedDisabled, setSubmittedDisabled] = useState(false);
+    const history = useHistory();
 
     const handleSubmit = async( event ) => {
         event.preventDefault();
+
+        setSubmittedDisabled(true);
+
         console.log("Submit clicked");
         
         try {
@@ -20,7 +26,7 @@ const CreateApplicationFrom = () => {
            if(response.status === 201) {
                console.log("Hoia gese");
                console.log("Data: ", response.data);
-
+               history.push(`/applications/dashboard/${response.data.id}`)
            }
 
         } catch (e) {
@@ -30,6 +36,9 @@ const CreateApplicationFrom = () => {
                     name: "You already have an application by this name"
                 })
            }
+        }
+        finally {
+            setSubmittedDisabled(false);
         }
     }
 
@@ -68,7 +77,7 @@ const CreateApplicationFrom = () => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
 
-                    <button type="submit">Login</button>
+                    <button type="submit" disabled={submittedDisabled}>Create</button>
 
                 </form>
                 <button className={style.href} onClick={() => {}}>

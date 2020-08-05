@@ -32,3 +32,10 @@ export async function addApplication(name, description) {
     await getAuthenticationHeader()
   );
 }
+
+export async function getApplicationById(applicationId) {
+  return axios.get(
+    `/api/applications/${applicationId}`,
+    await getAuthenticationHeader()
+  );
+}

@@ -16,6 +16,7 @@ export default function ApplicationListPage() {
             const response = await getAppicationList();
             console.log("response here: ",response);
             setApplication(response.data);
+            console.log("applications: ", applications);
             } catch(e) {
                history.push("/");
             }
