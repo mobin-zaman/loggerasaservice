@@ -1,8 +1,9 @@
-import React, {useEffect, useLayoutEffect, useMemo, useState} from "react";
+import React, {useEffect,useState } from "react";
 import GeneralNavBar from "../GeneralNavBar/GeneralNavBar";
 import {getApplicationList} from "../../apiServices/apiService";
 import {useHistory} from "react-router";
 import NoAppsYet from "./NoAppsYet/NoAppsYet";
+import ApplicationListEntry from "./ApplicationListEntry";
 
 
 export default function ApplicationListPage() {
@@ -27,7 +28,7 @@ export default function ApplicationListPage() {
         }
 
         getData();
-    }, []);
+    }, {});
 
 
     return (
@@ -41,7 +42,9 @@ export default function ApplicationListPage() {
                     {applications.length === 0 ?
                         (<NoAppsYet/>):(
                            <div>
-                               the application list
+                               {
+                                   applications.map((d)=> <ApplicationListEntry name={d.name} id={d.id} description={d.description}/>)
+                               }
                            </div>
                         )}
                 </div>
