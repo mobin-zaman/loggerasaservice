@@ -4,6 +4,7 @@ import {getApplicationList} from "../../apiServices/apiService";
 import {useHistory} from "react-router";
 import NoAppsYet from "./NoAppsYet/NoAppsYet";
 import ApplicationListEntry from "./ApplicationListEntry";
+import {element} from "prop-types";
 
 
 export default function ApplicationListPage() {
@@ -11,6 +12,7 @@ export default function ApplicationListPage() {
     const [applications, setApplication] = useState(null);
     const [loading, setLoading] = useState(true);
     const history = useHistory();
+    const [searchResult, setSearchResult] = useState(null);
 
 
     useEffect(() => {
@@ -19,6 +21,7 @@ export default function ApplicationListPage() {
                 const response = await getApplicationList();
                 console.log("response here: ", response);
                 setApplication(response.data.data);
+                setSearchResult(response.data.data);
             } catch (e) {
                 history.push("/");
             } finally {
@@ -29,6 +32,23 @@ export default function ApplicationListPage() {
 
         getData();
     }, {});
+
+    const handleSearch = event => {
+        event.preventDefault();
+
+        if(!event.target.value) {
+            setSearchResult(applications);
+        }
+        else {
+            setSearchResult(searchFunction(event.target.value));
+        }
+    }
+
+    const searchFunction = (searchString) => {
+       return applications.filter( element =>
+           element.name.toLowerCase().replace(/\s/g,'').includes(searchString.toLowerCase().replace(/\s/g,''))
+       )
+    }
 
 
     return (
@@ -41,11 +61,14 @@ export default function ApplicationListPage() {
                 <div>
                     {applications.length === 0 ?
                         (<NoAppsYet/>):(
-                           <div>
+                            <>
+                            <div>
+                                <input type="text" onChange={handleSearch} placeholder="Search for application"/>
                                {
-                                   applications.map((d)=> <ApplicationListEntry name={d.name} id={d.id} description={d.description}/>)
+                                   searchResult.map((d)=> <ApplicationListEntry name={d.name} id={d.id} description={d.description}/>)
                                }
                            </div>
+                            </>
                         )}
                 </div>
             ) : (

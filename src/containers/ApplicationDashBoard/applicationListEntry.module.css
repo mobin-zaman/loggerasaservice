@@ -1,0 +1,17 @@
+
+
+.container_div {
+    background: #202020;
+    width: 60%;
+    margin: auto;
+}
+
+.name_div {
+    text-transform: capitalize;
+    color: #9B89C8;
+    cursor: pointer;
+}
+
+.description_div {
+
+}
