@@ -5,6 +5,7 @@ import {useHistory} from "react-router";
 import NoAppsYet from "./NoAppsYet/NoAppsYet";
 import ApplicationListEntry from "./ApplicationListEntry";
 import {element} from "prop-types";
+import CreateNewApplicationNav from "./CreateNewApplicationNav/CreateNewApplication"
 
 
 export default function ApplicationListPage() {
@@ -46,6 +47,7 @@ export default function ApplicationListPage() {
 
     const searchFunction = (searchString) => {
        return applications.filter( element =>
+           //replace removes all the whitespace
            element.name.toLowerCase().replace(/\s/g,'').includes(searchString.toLowerCase().replace(/\s/g,''))
        )
     }
@@ -56,6 +58,7 @@ export default function ApplicationListPage() {
             <GeneralNavBar/>
             {/*first let's try you don't have any app yet*/}
             {/*{ applications && applications.length === 0 ?  (*/}
+            <CreateNewApplicationNav/>
             {!loading ? (
 
                 <div>

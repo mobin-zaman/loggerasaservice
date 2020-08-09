@@ -73,15 +73,13 @@ const CreateApplicationFrom = () => {
                         type="text"
                         placeholder="Enter description of the application (optional)"
                         name="description"
+                        required
                         onChange={(e) => setDescription(e.target.value)}
                     />
 
                     <button type="submit" disabled={submittedDisabled}>Create</button>
 
                 </form>
-                <button className={style.href} onClick={() => {}}>
-                    Don't have an account? <b color="blue">Sign up here!</b>
-                </button>
             </div>
             )
        </div>
