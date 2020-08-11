@@ -1,4 +1,5 @@
 import axios from "axios";
+const BASE_URL = 'https://cors-anywhere.herokuapp.com/http://95.216.146.201:8000';
 
 export function authenticated() {
   console.log("getting the token: ", localStorage.getItem("token"));
@@ -20,7 +21,7 @@ export async function getAuthenticationHeader() {
 
   try {
     //second parameter is data, third parameter is header
-    const response = await axios.post("/api/auth/refresh", {}, config);
+    const response = await axios.post(`${BASE_URL}/api/auth/refresh`, {}, config);
 
     //if token is invalid, destroy!
 

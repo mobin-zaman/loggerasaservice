@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
 import {getApplicationById} from "../../../apiServices/apiService";
+import style from "./style.module.css";
 
 const ApplicationDashBoard = ({match}) => {
 
@@ -30,10 +31,13 @@ const ApplicationDashBoard = ({match}) => {
     return (
         <>
         <GeneralNavBar/>
-        <div>
-            this.is the applicationName = = {application.name}
-            this. is the applcationDescription  = =  {application.description}
+        <div className={style.application_name}>
+            {application.name}
         </div>
+            <div className={style.description}>
+                {application.description}
+            </div>
+            
             </>
     )
 

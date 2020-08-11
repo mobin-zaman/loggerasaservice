@@ -76,7 +76,7 @@ export default function ApplicationListPage() {
                 </div>
             ) : (
 
-                <div>
+                <div style={{color: 'white'}}>
                     Loading....
                 </div>)
             }

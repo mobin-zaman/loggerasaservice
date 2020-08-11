@@ -25,7 +25,7 @@ const CreateApplicationFrom = () => {
 
            if(response.status === 201) {
                console.log("Data: ", response.data);
-               history.push(`/applications/dashboard/${response.data.id}`)
+               history.push(`/applications/dashboard/${response.data.data.id}`)
            }
 
         } catch (e) {
