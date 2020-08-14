@@ -69,7 +69,7 @@ export default function ApplicationListPage() {
                             <div>
                                 <input type="text" onChange={handleSearch} placeholder="Search for application"/>
                                {
-                                   searchResult.map((d)=> <ApplicationListEntry name={d.name} id={d.id} description={d.description}/>)
+                                   searchResult.map((d)=> <ApplicationListEntry name={d.name} id={d.id} description={d.description} key={d.id}/>)
                                }
                            </div>
                             </>
