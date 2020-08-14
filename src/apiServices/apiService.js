@@ -1,8 +1,8 @@
 import axios from "axios";
 import { getAuthenticationHeader } from "./Auth/authenticatedChecker";
 
-const BASE_URL = "http://logwithease.servebeer.com";
-// const BASE_URL = 'http://192.168.0.100:8000';
+// const BASE_URL = "http://logwithease.servebeer.com";
+const BASE_URL = "http://192.168.0.100:8000";
 
 export function signUp(username, email, password) {
   return axios.post(`${BASE_URL}/api/auth/register`, {
@@ -48,5 +48,12 @@ export async function getAllLogs(applicationId) {
   return axios.get(
     `${BASE_URL}/api/logs/${applicationId}`,
     await getAuthenticationHeader()
+  );
+}
+
+export async function getLogCount(applicationId) {
+  return axios.get(
+      `${BASE_URL}/api/logs/count/${applicationId}`,
+      await getAuthenticationHeader()
   );
 }

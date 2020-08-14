@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {getAllLogs, getApplicationById} from "../../../apiServices/apiService";
+import {getAllLogs, getApplicationById, getLogCount} from "../../../apiServices/apiService";
 
 const LogDashBoard = ({match}) => {
 
@@ -7,6 +7,7 @@ const LogDashBoard = ({match}) => {
     const [logs, setLogs] = useState('');
 
     const [logCount, setLogCount] = useState('');
+    const [difCount, setDifCount] = useState('');
 
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const LogDashBoard = ({match}) => {
         //to get initial log list
        async function getLogs(){
           try{
-              const response = await getAllLogs(application.id);
+              const response = await getAllLogs(match.params.applicationId);
 
               if(response.status === 200) {
                   console.log("log list: : :", response.data.data);
@@ -45,13 +46,29 @@ const LogDashBoard = ({match}) => {
           }
        }
        getLogs();
-    }, [application]);
+    }, [match.params.applicationId]);
+
+    useEffect(() => {
+        async function getCount() {
+            try {
+                const response = await getLogCount(match.params.applicationId);
+
+                if(response.status === 200) {
+                    console.log("log count: : :", response.data.log_count);
+                }
+            } catch(e){
+               console.log("Error: ",e);
+            }
+        }
+        getCount();
+    }, [match.params.applicationId])
 
 
 
     return (
         <div>
             this is the log dash board of {application.id}
+            these are the logs {logs.toString()}
         </div>
     )
 }
