@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import style from "../../IndexPages/Login/Login.module.css";
 import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
 import {addApplication} from "../../../apiServices/apiService";
-import ApplicationDashBoard from "../ApplicationDashBoard/ApplicationDashBoard";
+import ApplicationInfo from "../ApplicationInfo/ApplicationInfo";
 import {useHistory} from "react-router";
 
 const CreateApplicationFrom = () => {

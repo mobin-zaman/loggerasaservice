@@ -38,7 +38,7 @@ export default function Login({ signUpSuccess, unauthenticatedMessage }) {
       }
 
     } catch (e) {
-      console.log("error from login: ", e);
+      console.error("error from login: ", e);
       if (e.response.status === 422) {
         setErrors({
           email: e.response.data.email[0],

@@ -6,8 +6,8 @@ import ApplicationListPage from "../containers/ApplicationDashBoard/ApplicationL
 import IndexPage from "../containers/IndexPages/indexPage";
 import { authenticated } from "../apiServices/Auth/authenticatedChecker";
 import CreateApplicationForm from "../containers/ApplicationDashBoard/CreateApplicationForm/CreateApplicationForm";
-import App from "../App";
-import ApplicationDashBoard from "../containers/ApplicationDashBoard/ApplicationDashBoard/ApplicationDashBoard";
+import ApplicationInfo from "../containers/ApplicationDashBoard/ApplicationInfo/ApplicationInfo";
+import LogDashboard from "../containers/ApplicationDashBoard/Dashboard/LogDashboard";
 
 const RequireAuth = ({ children }) => {
   if (!authenticated()) {
@@ -39,7 +39,12 @@ const AppRouter = () => (
       <Route
         exact
         path="/applications/dashboard/:applicationId"
-        component={ApplicationDashBoard}
+        component={ApplicationInfo}
+      />
+      <Route
+        exact
+        path="/applications/logs/:applicationId"
+        component={LogDashboard}
       />
     </RequireAuth>
   </Switch>
