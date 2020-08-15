@@ -12,17 +12,17 @@ function incrementCounter() {
 
 export function getBearerToken() {
   //some black magic for the time being
-  incrementCounter();
   const token = localStorage.getItem("token");
   if (token === null) throw new Error("bearer token gone!");
   return `Bearer ${token}`;
 }
 
 export async function getAuthenticationHeader() {
-  console.log("get bearer token: ", getBearerToken());
+  // console.log("get bearer token: ", getBearerToken());
   const config = {
     headers: { Authorization: await getBearerToken() },
   };
+  incrementCounter();
 
   try {
     //second parameter is data, third parameter is header

@@ -53,7 +53,7 @@ export async function getAllLogs(applicationId) {
 
 export async function getLogCount(applicationId) {
   return axios.get(
-      `${BASE_URL}/api/logs/count/${applicationId}`,
-      await getAuthenticationHeader()
+    `${BASE_URL}/api/logs/count/${applicationId}`,
+    await getAuthenticationHeader()
   );
 }
