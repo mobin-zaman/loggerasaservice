@@ -3,7 +3,11 @@ import './style.module.css';
 
 
 const LogEntry = ({type, description, created_at}) =>  {
+    if(!type && !description && !created_at) {
+        console.log('type, descripiton, created_at', type, ' ', description, ' ', created_at);
+    }
     return (
+
     <div className="row m-4">
         <div className="col-3 justify-content-center">{created_at}</div>
         <div className="col-1 nopadding" >{type}</div>

@@ -1,13 +1,14 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {getAllLogs, getApplicationById, getLatestLogByCount, getLogCount} from "../../../apiServices/apiService";
 import ApplicationListEntry from "../ApplicationListEntry";
-import LogEntry from "./LogEntry/LogEntry";
+import LogEntry from "./LogPanel/LogEntry/LogEntry";
 import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
+import LogPanel from "./LogPanel/LogPanel";
 
 const LogDashBoard = ({match}) => {
 
     const [application, setApplication ] = useState('');
-    const [logs, setLogs] = useState('');
+    const [logs, setLogs] = useState([]);
 
     const [logCount, setLogCount] = useState('');
     const [difCount, setDifCount] = useState(0);
@@ -88,9 +89,13 @@ const LogDashBoard = ({match}) => {
         if(difCount !== 0) {
             const getLogByCount = async (count) => {
                 try {
-                   const response = await getLatestLogByCount(application.id,count+10);
+                   const response = await getLatestLogByCount(application.id,count+20);
                    if(response.status === 200) {
                        console.log("latest response: ",response.data.data);
+
+                       //to apped the item infront of an array
+                       setLogs(logs=>[...response.data.data,...logs]);
+                       console.log("logs.length: ", logs.length);
                    }
 
                 } catch(e) {
@@ -100,16 +105,16 @@ const LogDashBoard = ({match}) => {
             getLogByCount(difCount);
     }
 
-    }, [difCount]);
+    }, [difCount, application.id]);
 
     return (
         <>
             <GeneralNavBar/>
         <div>
             this is the log dash board of {application.id}
-            {/*searchResult.map((d)=> <ApplicationListEntry name={d.name} id={d.id} description={d.description} key={d.id}/>)*/}
+            ====
+            <LogPanel logs={logs}/>
 
-            {logs !== '' && logs.map((d)=> <LogEntry key={d.id} type={d.type} description={d.description} created_at={d.created_at}/>)}
         </div>
             </>
     )
