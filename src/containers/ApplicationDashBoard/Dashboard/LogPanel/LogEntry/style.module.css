@@ -1,15 +1,23 @@
 
 .div_style {
-    display:table;
+    text-align: justify;
 }
 .span_style {
     margin-right: 15px;
     padding-left: 12px;
 }
 
+
 .span_type {
+    vertical-align: center;
     margin-right: 15px;
     padding-left: 12px;
+    display: inline-block;
     width:60px;
-    display:inline-block;
+}
+
+.span_description {
+    display: inline-block;
+    width: 70%;
+
 }
