@@ -1,19 +1,16 @@
 import React from 'react';
-import './style.module.css';
+import style from './style.module.css';
 
 
 const LogEntry = ({type, description, created_at}) =>  {
-    if(!type && !description && !created_at) {
-        console.log('type, descripiton, created_at', type, ' ', description, ' ', created_at);
-    }
-    return (
 
-    <div className="row m-4">
-        <div className="col-3 justify-content-center">{created_at}</div>
-        <div className="col-1 nopadding" >{type}</div>
-        <div className="col-8">{description}</div>
+    return (
+    <div className={style.div_style}>
+        <span className={style.span_style}>{created_at}</span>
+        <span className={style.span_type}>{type}</span>
+        <span className={style.span_style}>{description}</span>
     </div>
-    )
+    );
 }
 
 export default LogEntry;
