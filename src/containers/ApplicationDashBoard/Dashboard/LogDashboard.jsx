@@ -1,5 +1,8 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
-import {getAllLogs, getApplicationById, getLogCount} from "../../../apiServices/apiService";
+import {getAllLogs, getApplicationById, getLatestLogByCount, getLogCount} from "../../../apiServices/apiService";
+import ApplicationListEntry from "../ApplicationListEntry";
+import LogEntry from "./LogEntry/LogEntry";
+import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
 
 const LogDashBoard = ({match}) => {
 
@@ -82,15 +85,33 @@ const LogDashBoard = ({match}) => {
 
 
     useEffect(() => {
-        if(difCount !== 0) console.log("it will run when world is changed");
+        if(difCount !== 0) {
+            const getLogByCount = async (count) => {
+                try {
+                   const response = await getLatestLogByCount(application.id,count+10);
+                   if(response.status === 200) {
+                       console.log("latest response: ",response.data.data);
+                   }
+
+                } catch(e) {
+                   console.log('get log by count error: ',e);
+                }
+            }
+            getLogByCount(difCount);
+    }
 
     }, [difCount]);
 
     return (
+        <>
+            <GeneralNavBar/>
         <div>
             this is the log dash board of {application.id}
-            these are the logs {logs.toString()}
+            {/*searchResult.map((d)=> <ApplicationListEntry name={d.name} id={d.id} description={d.description} key={d.id}/>)*/}
+
+            {logs !== '' && logs.map((d)=> <LogEntry key={d.id} type={d.type} description={d.description} created_at={d.created_at}/>)}
         </div>
+            </>
     )
 }
 
