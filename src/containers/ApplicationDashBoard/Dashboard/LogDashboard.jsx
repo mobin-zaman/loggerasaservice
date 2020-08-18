@@ -1,7 +1,7 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {getAllLogs, getApplicationById, getLatestLogByCount, getLogCount} from "../../../apiServices/apiService";
 import ApplicationListEntry from "../ApplicationListEntry";
-import LogEntry from "./LogPanel/LogEntry/LogEntry";
+import LogModal from "./LogPanel/LogEntry/LogModal";
 import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
 import LogPanel from "./LogPanel/LogPanel";
 

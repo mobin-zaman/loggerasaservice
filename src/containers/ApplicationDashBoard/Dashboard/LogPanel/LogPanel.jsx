@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import {Table, Column } from "react-virtualized";
 import 'react-virtualized/styles.css'; // only needs to be imported once
 import style from "./LogEntry/style.module.css";
-import Modal from "react-modal";
+import LogModal from "./LogEntry/LogModal";
 
 const LogPanel = ({logs}) => {
 
     const [isLogModalOpen, setLogModalOpen] = useState(false);
+    const [logForModal, setLogForModal] = useState(null);
 
     const renderLogs = ({cellData}) => (
         <span className={style.span_description}>{cellData}</span>
@@ -15,6 +16,8 @@ const LogPanel = ({logs}) => {
 
     const rowClickHandler = ({index}) => {
         console.log("index of the row",index);
+        console.log("logs for modal", logs[index]);
+        setLogForModal(logs[index]);
         setLogModalOpen(true)
     }
 
@@ -35,9 +38,7 @@ const LogPanel = ({logs}) => {
             <Column width={1000} className={style.span_description} label="log" dataKey="description" cellRenderer={(cellData)=> renderLogs(cellData)}/>
         </Table>
 
-        <Modal isOpen={isLogModalOpen}
-            onRequestClose = { () => setLogModalOpen(false)}
-        >hello</Modal>
+            {isLogModalOpen && <LogModal isOpen={isLogModalOpen} onCancel={()=>setLogModalOpen(false)} log={logForModal}/>}
 
             </>
 
