@@ -19,6 +19,6 @@
 .span_description {
     display: inline-block;
     width: 30%;
-    word-wrap: break-word;
     text-align: justify-all;
+    word-wrap: break-word;
 }

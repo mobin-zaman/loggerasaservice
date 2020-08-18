@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import Modal from "react-modal"
 
 import "./index.css";
 
 import * as serviceWorker from "./serviceWorker";
 import AppRouter from "./router/router";
 
+const el = document.getElementById("root")
+Modal.setAppElement(el);
 ReactDOM.render(
   <React.StrictMode>
     <Router>
@@ -14,7 +17,7 @@ ReactDOM.render(
       <AppRouter />
     </Router>
   </React.StrictMode>,
-  document.getElementById("root")
+    el
 );
 
 // If you want your app to work offline and load faster, you can change
