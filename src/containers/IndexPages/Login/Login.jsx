@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "./Login.module.css";
+import style from "../style.module.css";
 import Signup from "../Signup/Signup";
 import { login } from "../../../apiServices/apiService";
 import { useHistory } from "react-router-dom";
@@ -60,12 +60,8 @@ export default function Login({ signUpSuccess, unauthenticatedMessage }) {
         <div className={style.container}>
           {signUpSuccess && <h4>{signUpSuccess}</h4>}
           {unauthenticatedMessage && <h4>{unauthenticatedMessage}</h4>}
-          {console.log(
-            "Logging to check the props are passing or not: ",
-            unauthenticatedMessage
-          )}
 
-          <h1>Login to your account</h1>
+          <h1 className={style.login_form_header}>Login to your account</h1>
 
           {errors && errors.credentialError && (
             <div className="error"> {errors.credentialError}</div>
@@ -97,14 +93,14 @@ export default function Login({ signUpSuccess, unauthenticatedMessage }) {
               required
             />
 
-            <button type="submit">Login</button>
+            <button type="submit" className={style.login_button}>Login</button>
 
-            {/* TODO: work with it later on 
+            {/* TODO: work with it later on
                         <input type="checkbox" checked="checked" name="remember"/> <label htmlFor="remember"> Remember
                         me </label> */}
           </form>
-          <button className={style.href} onClick={() => setToggleSignUp(true)}>
-            Don't have an account? <b color="blue">Sign up here!</b>
+          <button className={style.signup_href} onClick={() => setToggleSignUp(true)}>
+            Don't have an account? <b className={style.form_header_span}>Sign up here!</b>
           </button>
         </div>
       ) : (

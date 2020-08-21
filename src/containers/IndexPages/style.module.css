@@ -7,12 +7,12 @@ body {
     background-color: #181A1B;
 }
 
-h1 {
+.login_form_header {
    text-align: center;
    vertical-align: middle;
-   padding: 50px;
-   margin: auto;
-   font-family: Open Sans;
+    color: #6f4a8e;
+   padding: 10px;
+   font-family: Open Sans, monospace;
 }
 
 input[type=text], input[type=password] {
@@ -29,14 +29,15 @@ label {
     color: #6D8587;
 }
 
-button {
-    background-color: #0092C6;
+.login_button {
+    background-color: #221f3b;
     color: white;
     padding: 14px 20px;
     cursor: pointer;
     width: 100%;
     border: none;
     font-size: medium;
+    font-family: Open Sans, monospace;
 }
 
 .container {
@@ -56,11 +57,16 @@ button {
     font-size: medium;
 }
 
-.href {
+.signup_href {
+    font-family: Open Sans, monospace;
     border: 0;
     padding: 0;
     cursor: pointer;
     background-color: transparent;
     margin-top: 40px;
 
+}
+
+.form_header_span{
+    color: #6f4a8e;
 }

@@ -12,6 +12,7 @@ const LogModal = ({log, isOpen, onCancel}) =>  {
                     <pre>{log.created_at}</pre>
                     <pre>{log.type}</pre>
                     <pre>{log.description}</pre>
+                    <button type ="button" onClick={onCancel}>Back</button>
                 </Modal>
             )
     ;

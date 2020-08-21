@@ -19,12 +19,12 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-label {
+.label {
     font-size: smaller;
     color: #6D8587;
 }
 
-button {
+.button {
     background-color: #0092C6;
     color: white;
     padding: 14px 20px;

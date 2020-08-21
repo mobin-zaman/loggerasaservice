@@ -1,8 +1,12 @@
 import axios from "axios";
 import { getAuthenticationHeader } from "./Auth/authenticatedChecker";
+import {BASE_URL} from './Auth/BASE_URL';
 
-// const BASE_URL = "http://logwithease.servebeer.com";
-const BASE_URL = "http://192.168.0.100:8000";
+// const BASE_URL = "https://logwithease.servebeer.com";
+// const BASE_URL = "https://cors-anywhere.herokuapp.com/https://logwithease.servebeer.com/"
+// const BASE_URL = "https://aoaivbchhe.sharedwithexpose.com";
+
+// const BASE_URL = "http://95.216.146.201"
 
 export function signUp(username, email, password) {
   return axios.post(`${BASE_URL}/api/auth/register`, {

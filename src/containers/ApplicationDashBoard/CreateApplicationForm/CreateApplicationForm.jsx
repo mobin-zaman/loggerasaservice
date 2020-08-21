@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import style from "../../IndexPages/Login/Login.module.css";
+import style from "../../IndexPages/style.module.css";
 import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
 import {addApplication} from "../../../apiServices/apiService";
 import ApplicationInfo from "../ApplicationInfo/ApplicationInfo";
@@ -19,7 +19,7 @@ const CreateApplicationFrom = () => {
         setSubmittedDisabled(true);
 
         console.log("Submit clicked");
-        
+
         try {
            const response = await addApplication(name, description);
 

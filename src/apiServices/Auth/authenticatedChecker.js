@@ -1,6 +1,12 @@
 import axios from "axios";
-// const BASE_URL = "http://logwithease.servebeer.com";
-const BASE_URL = "http://192.168.0.100:8000";
+// const BASE_URL = "https://logwithease.servebeer.com";
+// const BASE_URL = "https://cors-anywhere.herokuapp.com/https://logwithease.servebeer.com/"
+// const BASE_URL = "https://aoaivbchhe.sharedwithexpose.com";
+// const BASE_URL = "http://95.216.146.201/"
+
+import {BASE_URL} from './BASE_URL';
+
+
 
 //already regret doing it, but need to finish the project faset
 let counter = 0;
@@ -20,7 +26,9 @@ export function getBearerToken() {
 export async function getAuthenticationHeader() {
   // console.log("get bearer token: ", getBearerToken());
   const config = {
-    headers: { Authorization: await getBearerToken() },
+    headers: { 
+      Authorization: getBearerToken(),
+    },
   };
   incrementCounter();
 
@@ -43,7 +51,8 @@ export async function getAuthenticationHeader() {
     //TODO: need to handle 429(too many request as well)
 
     return {
-      headers: { Authorization: await getBearerToken() },
+      headers: { Authorization: getBearerToken() ,
+       },
     };
   } catch (e) {
     console.log("ERROR: getAuthToken: ", e.response);
