@@ -1,8 +1,8 @@
 .div_style {
-    border: 1px solid red;
     margin-top: 20px;
     text-align: center;
     color: white;
+    border:  #6f4a8e solid;
 }
 
 .text_style {
@@ -10,8 +10,12 @@
 }
 
 .button_style {
-
+    background-color: #221f3b;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
     width: 10%;
-    justify-self: right;
-    padding-right: 20px;
+    border: none;
+    font-size: medium;
+    font-family: Open Sans, monospace;
 }

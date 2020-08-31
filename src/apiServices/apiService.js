@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getAuthenticationHeader } from "./Auth/authenticatedChecker";
-import {BASE_URL} from './Auth/BASE_URL';
+import { BASE_URL } from "./Auth/BASE_URL";
 
 // const BASE_URL = "https://logwithease.servebeer.com";
 // const BASE_URL = "https://cors-anywhere.herokuapp.com/https://logwithease.servebeer.com/"

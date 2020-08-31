@@ -16,7 +16,7 @@ ReactDOM.render(
       {/*<App />*/}
       <AppRouter />
     </Router>
-   </React.StrictMode>,
+  </React.StrictMode>,
   el
 );
 

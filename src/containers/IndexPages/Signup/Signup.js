@@ -128,10 +128,16 @@ export default function Signup() {
               <div className="error"> {errors.confirmPassword}</div>
             )}
 
-            <button className={style.login_button} type="submit">Sign Up</button>
+            <button className={style.login_button} type="submit">
+              Sign Up
+            </button>
           </form>
-          <button className={style.signup_href} onClick={() => setToggleLogin(true)}>
-            Already have an account? <b className={style.form_header_span}>Login here!</b>
+          <button
+            className={style.signup_href}
+            onClick={() => setToggleLogin(true)}
+          >
+            Already have an account?{" "}
+            <b className={style.form_header_span}>Login here!</b>
           </button>
         </div>
       ) : (

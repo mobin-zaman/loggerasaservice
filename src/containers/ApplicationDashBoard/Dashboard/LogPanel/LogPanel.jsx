@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Table, Column } from "react-virtualized";
 import 'react-virtualized/styles.css'; // only needs to be imported once
-import style from "./LogEntry/style.module.css";
+import style from "./style.module.css";
 import LogModal from "./LogEntry/LogModal";
 
 const LogPanel = ({logs}) => {
@@ -9,9 +9,26 @@ const LogPanel = ({logs}) => {
     const [isLogModalOpen, setLogModalOpen] = useState(false);
     const [logForModal, setLogForModal] = useState(null);
 
-    const renderLogs = ({cellData}) => (
-        <span className={style.span_description}>{cellData}</span>
-    )
+    const renderLogs = ({cellData}) => {
+        return <span className={style.log_text_style}>{cellData}</span>
+    }
+
+    const renderLogTypes = ({cellData}) => {
+        switch (cellData) {
+            case "ERROR":
+                return <div className={style.log_type_error}>{cellData}</div>
+            case "WARN":
+                return <div className={style.log_type_warn}>{cellData}</div>
+            case "INFO":
+                return <div className={style.log_type_info}>{cellData}</div>
+            default:
+                return <div className={style.log_type_others}>{cellData}</div>
+        }
+    }
+
+    const renderTimeStamp = ({cellData}) => {
+        return <span className={style.log_timestamp}>{cellData}</span>
+    }
 
 
     const rowClickHandler = ({index}) => {
@@ -27,14 +44,14 @@ const LogPanel = ({logs}) => {
             width={1350}
             height={700}
             headerHeight={20}
-            rowHeight={30}
+            rowHeight={40}
             rowCount={logs.length}
             rowGetter={({index})=>logs[index]}
             onRowClick={rowClickHandler}
         >
 
-            <Column label="timestamp" dataKey="created_at" width={150}/>
-            <Column label="type" dataKey="type" width={100} />
+            <Column label="timestamp" dataKey="created_at" width={150} cellRenderer={(cellData)=> renderTimeStamp(cellData)}/>
+            <Column label="type" dataKey="type" width={100} cellRenderer={(celData)=> renderLogTypes(celData)}/>
             <Column width={1000} className={style.span_description} label="log" dataKey="description" cellRenderer={(cellData)=> renderLogs(cellData)}/>
         </Table>
 

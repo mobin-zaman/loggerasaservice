@@ -1,0 +1,36 @@
+
+.log_type_error {
+    color: white;
+    background-color:  #F44336;
+    text-align: center;
+    padding: 5px;
+}
+
+.log_type_warn {
+    color: black;
+    background-color:#FFEB3B;
+    text-align: center;
+    padding: 5px;
+}
+
+.log_type_info {
+    color: white;
+    background-color:#4CAF50;
+    text-align: center;
+    padding: 5px;
+}
+
+.log_type_others {
+    color: whitesmoke;
+    background-color: #2196F3;
+    text-align: center;
+    padding: 5px;
+}
+
+.log_text_style {
+    color: antiquewhite;
+}
+
+.log_timestamp {
+    color: antiquewhite;
+}

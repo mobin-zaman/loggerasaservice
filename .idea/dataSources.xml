@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="@95.216.146.201" uuid="fc2ed640-b713-4ae5-a1a5-e2e971ebb916">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://95.216.146.201:3306</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="ridth_db@95.216.146.201" uuid="5cba4f68-3001-41af-8d94-b61d88947a47">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://95.216.146.201:3306/ridth_db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="jdbc:mysql://http://cloudmysql.gotdns.ch:3306/ridth_db" uuid="959bd74b-f1e7-4c35-9112-74f2f02c8fcd">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://http://cloudmysql.gotdns.ch:3306/ridth_db</jdbc-url>
+    </data-source>
+  </component>
+</project>
