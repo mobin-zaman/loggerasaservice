@@ -41,6 +41,9 @@
 
 .modal_span {
     color: white;
+    border-bottom: 5px solid #6F4A8E;
+    font-size: 20px;
+    background: #221F3B;
 }
 
 .pre_time_stamp {

@@ -40,24 +40,36 @@
     color: white;
     padding-left: 10px;
     font-family: 'Consolas', serif;
+    border-bottom: 5px solid #6F4A8E;
 }
 
 .log_timestamp {
     color: white;
     font-family: 'Consolas', serif;
+    border-bottom: 5px solid #6F4A8E;
 }
 
 .header_timestamp {
     color: white;
     padding-left: 35px;
+    border-bottom: 5px solid #6F4A8E;
+    font-size: 20px;
+    background: #221F3B;
+
 }
 
 .header_type {
     color: white;
     text-align: center;
+    border-bottom: 5px solid #6F4A8E;
+    font-size: 20px;
+    background: #221F3B;
 }
 
 .header_log {
     color: white;
     padding-left: 13px;
+    border-bottom: 5px solid #6F4A8E;
+    font-size: 20px;
+    background: #221F3B;
 }

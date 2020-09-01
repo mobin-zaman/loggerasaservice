@@ -4,6 +4,7 @@ import ApplicationListEntry from "../ApplicationListEntry";
 import LogModal from "./LogPanel/LogEntry/LogModal";
 import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
 import LogPanel from "./LogPanel/LogPanel";
+import style from './style.module.css';
 
 const LogDashBoard = ({match}) => {
 
@@ -111,8 +112,10 @@ const LogDashBoard = ({match}) => {
         <>
             <GeneralNavBar/>
         <div>
-            this is the log dash board of {application.id}
-            ====
+            {/*Logs of {application.name}*/}
+            <div className={style.nav_bar_log_panel}>
+            {application.name}
+            </div>
             <LogPanel logs={logs}/>
 
         </div>

@@ -62,7 +62,7 @@ const LogPanel = ({logs}) => {
         <Table
             width={1350}
             height={700}
-            headerHeight={20}
+            headerHeight={25}
             rowHeight={45}
             rowCount={logs.length}
             rowGetter={({index})=>logs[index]}
