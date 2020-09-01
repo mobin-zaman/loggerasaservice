@@ -22,3 +22,36 @@
     text-align: justify-all;
     word-wrap: break-word;
 }
+
+.modal_button {
+    background-color: #221f3b;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    width: 20%;
+    border: none;
+    font-size: medium;
+    font-family: Open Sans, monospace;
+    margin-left: 450px;
+}
+
+.modal_background {
+    background-color: #181A1B;
+}
+
+.modal_span {
+    color: white;
+}
+
+.pre_time_stamp {
+    color: white;
+}
+
+
+.pre_type {
+    color: white;
+}
+
+.pre_log {
+    color: white;
+}

@@ -9,6 +9,7 @@ const LogPanel = ({logs}) => {
     const [isLogModalOpen, setLogModalOpen] = useState(false);
     const [logForModal, setLogForModal] = useState(null);
 
+
     const renderLogs = ({cellData}) => {
         return <span className={style.log_text_style}>{cellData}</span>
     }
@@ -38,21 +39,39 @@ const LogPanel = ({logs}) => {
         setLogModalOpen(true)
     }
 
+    const formatTimeStampHeader = () => {
+        return (
+            <p className={style.header_timestamp}> TIMESTAMP</p>
+        )
+    }
+
+    const formatTypeHeader = () => {
+        return (
+            <p className={style.header_type}>TYPE</p>
+        )
+    }
+
+    const formatLogHeader = () => {
+        return (
+            <p className={style.header_log}>LOG</p>
+        )
+    }
+
     return (
         <>
         <Table
             width={1350}
             height={700}
             headerHeight={20}
-            rowHeight={40}
+            rowHeight={45}
             rowCount={logs.length}
             rowGetter={({index})=>logs[index]}
             onRowClick={rowClickHandler}
         >
 
-            <Column label="timestamp" dataKey="created_at" width={150} cellRenderer={(cellData)=> renderTimeStamp(cellData)}/>
-            <Column label="type" dataKey="type" width={100} cellRenderer={(celData)=> renderLogTypes(celData)}/>
-            <Column width={1000} className={style.span_description} label="log" dataKey="description" cellRenderer={(cellData)=> renderLogs(cellData)}/>
+            <Column label="timestamp" headerRenderer={formatTimeStampHeader} dataKey="created_at" width={200} cellRenderer={(cellData)=> renderTimeStamp(cellData)}/>
+            <Column label="type" headerRenderer={formatTypeHeader}  dataKey="type" width={100} cellRenderer={(celData)=> renderLogTypes(celData)}/>
+            <Column width={1000} headerRenderer={formatLogHeader}  className={style.span_description} label="log" dataKey="description" cellRenderer={(cellData)=> renderLogs(cellData)}/>
         </Table>
 
             {isLogModalOpen && <LogModal isOpen={isLogModalOpen} onCancel={()=>setLogModalOpen(false)} log={logForModal}/>}

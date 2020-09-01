@@ -1,9 +1,15 @@
+@font-face {
+    font-family: 'Consolas';
+    font-style: normal;
+    src: url('./consola.ttf');
+}
 
 .log_type_error {
     color: white;
     background-color:  #F44336;
     text-align: center;
     padding: 5px;
+    font-family: 'Consolas', serif;
 }
 
 .log_type_warn {
@@ -11,6 +17,7 @@
     background-color:#FFEB3B;
     text-align: center;
     padding: 5px;
+    font-family: 'Consolas', serif;
 }
 
 .log_type_info {
@@ -18,6 +25,7 @@
     background-color:#4CAF50;
     text-align: center;
     padding: 5px;
+    font-family: 'Consolas', serif;
 }
 
 .log_type_others {
@@ -25,12 +33,31 @@
     background-color: #2196F3;
     text-align: center;
     padding: 5px;
+    font-family: 'Consolas', serif;
 }
 
 .log_text_style {
-    color: antiquewhite;
+    color: white;
+    padding-left: 10px;
+    font-family: 'Consolas', serif;
 }
 
 .log_timestamp {
-    color: antiquewhite;
+    color: white;
+    font-family: 'Consolas', serif;
+}
+
+.header_timestamp {
+    color: white;
+    padding-left: 35px;
+}
+
+.header_type {
+    color: white;
+    text-align: center;
+}
+
+.header_log {
+    color: white;
+    padding-left: 13px;
 }
