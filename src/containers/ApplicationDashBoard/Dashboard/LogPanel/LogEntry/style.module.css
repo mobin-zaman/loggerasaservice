@@ -1,4 +1,8 @@
-
+@font-face {
+    font-family: 'Consolas';
+    font-style: normal;
+    src: url('./../consola.ttf');
+}
 .div_style {
     text-align: justify;
 }
@@ -24,7 +28,7 @@
 }
 
 .modal_button {
-    background-color: #221f3b;
+    background-color: #6F4A8E;
     color: white;
     padding: 14px 20px;
     cursor: pointer;
@@ -48,13 +52,55 @@
 
 .pre_time_stamp {
     color: white;
+    font-size: 15px;
+    font-family: 'Consolas', serif;
 }
 
 
 .pre_type {
     color: white;
+    font-size: 15px;
+    font-family: 'Consolas', serif;
 }
 
 .pre_log {
     color: white;
+    font-size: 15px;
+    font-family: 'Consolas', serif;
+}
+
+.log_type_error {
+    color: white;
+    background-color:  #F44336;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Consolas', serif;
+    width: 50px;
+}
+
+.log_type_warn {
+    color: black;
+    background-color:#FFEB3B;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Consolas', serif;
+    width: 50px;
+}
+
+.log_type_info {
+    color: white;
+    background-color:#4CAF50;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Consolas', serif;
+    width: 50px;
+}
+
+.log_type_others {
+    color: whitesmoke;
+    background-color: #2196F3;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Consolas', serif;
+    width: 50px;
 }

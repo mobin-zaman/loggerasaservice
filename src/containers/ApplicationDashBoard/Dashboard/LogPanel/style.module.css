@@ -38,15 +38,17 @@
 
 .log_text_style {
     color: white;
-    padding-left: 10px;
+    padding-left: 15px;
     font-family: 'Consolas', serif;
     border-bottom: 5px solid #6F4A8E;
+
 }
 
 .log_timestamp {
     color: white;
     font-family: 'Consolas', serif;
     border-bottom: 5px solid #6F4A8E;
+    padding-left: 15px;
 }
 
 .header_timestamp {
