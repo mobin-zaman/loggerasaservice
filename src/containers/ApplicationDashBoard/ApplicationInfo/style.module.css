@@ -13,3 +13,28 @@
     color: white;
     size: 15px;
 }
+
+.code_style {
+    color: white;
+    font-size:medium;
+    border: 5px solid black;
+    background: black;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.code_entry_style {
+    color: white;
+    padding: 10px;
+}
+
+.check_logs_button {
+    background-color: #6F4A8E;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    font-size: medium;
+    font-family: Open Sans, monospace;
+}

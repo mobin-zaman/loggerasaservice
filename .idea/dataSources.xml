@@ -19,5 +19,14 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://http://cloudmysql.gotdns.ch:3306/ridth_db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="polapain@cloudmysql.gotdns.ch" uuid="686363c9-b8ae-4e77-8ad0-ca71806b71a6">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://cloudmysql.gotdns.ch:3306/polapain</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="UTC" />
+      </driver-properties>
+    </data-source>
   </component>
 </project>
