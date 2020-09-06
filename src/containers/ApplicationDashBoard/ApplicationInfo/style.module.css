@@ -33,8 +33,9 @@
     color: white;
     padding: 14px 20px;
     cursor: pointer;
-    width: 100%;
-    border: none;
+    width: 40%;
+    border: solid 5px #221F3B;
     font-size: medium;
     font-family: Open Sans, monospace;
+    margin: 10px;
 }

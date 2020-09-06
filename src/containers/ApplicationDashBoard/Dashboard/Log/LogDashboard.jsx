@@ -1,8 +1,8 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
-import {getAllLogs, getApplicationById, getLatestLogByCount, getLogCount} from "../../../apiServices/apiService";
-import ApplicationListEntry from "../ApplicationListEntry";
+import {getAllLogs, getApplicationById, getLatestLogByCount, getLogCount} from "../../../../apiServices/apiService";
+import ApplicationListEntry from "../../ApplicationListEntry";
 import LogModal from "./LogPanel/LogEntry/LogModal";
-import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
+import GeneralNavBar from "../../../GeneralNavBar/GeneralNavBar";
 import LogPanel from "./LogPanel/LogPanel";
 import style from './style.module.css';
 

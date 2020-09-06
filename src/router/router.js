@@ -6,7 +6,8 @@ import ApplicationListPage from "../containers/ApplicationDashBoard/ApplicationL
 import IndexPage from "../containers/IndexPages/indexPage";
 import CreateApplicationForm from "../containers/ApplicationDashBoard/CreateApplicationForm/CreateApplicationForm";
 import ApplicationInfo from "../containers/ApplicationDashBoard/ApplicationInfo/ApplicationInfo";
-import LogDashboard from "../containers/ApplicationDashBoard/Dashboard/LogDashboard";
+import LogDashboard from "../containers/ApplicationDashBoard/Dashboard/Log/LogDashboard";
+import StatsDashboard from "../containers/ApplicationDashBoard/Dashboard/Stats/StatsDashboard";
 
 // const RequireAuth = ({ children }) => {
 // if (!localStorage.getItem('token')) {
@@ -45,6 +46,8 @@ const AppRouter = () => (
       path="/applications/logs/:applicationId"
       component={LogDashboard}
     />
+
+     <Route exact path="/applications/stats/:applicationId" component={StatsDashboard}/>
     {/*</RequireAuth>*/}
   </Switch>
 );

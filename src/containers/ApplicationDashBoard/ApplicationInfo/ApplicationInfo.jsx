@@ -29,7 +29,8 @@ const ApplicationInfo = ({match}) => {
     //error type log
     logger.error("error: ", exampleException);
 
-    //custom type of log, first parameter is the custom log
+    //custom type of log, first parameter is the custom log type
+    
     logger.log("NOTE", "this is an example of custom type log");
 
     `);
@@ -58,6 +59,10 @@ const ApplicationInfo = ({match}) => {
 
     const transitToLogPage = event => {
        history.push(`/applications/logs/${match.params.applicationId.toString()}`);
+    }
+
+    const transitToStatPage = event => {
+        history.push(`/applications/stats/${match.params.applicationId.toString()}`);
     }
 
     return (
@@ -93,6 +98,7 @@ const ApplicationInfo = ({match}) => {
 
 
             <button className={style.check_logs_button} onClick={transitToLogPage}>Check Logs!</button>
+            <button className={style.check_logs_button} onClick={transitToStatPage}> Check Log Stats!</button>
             </>
     )
 
