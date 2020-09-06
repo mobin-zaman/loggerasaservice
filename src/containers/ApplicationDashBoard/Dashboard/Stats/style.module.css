@@ -1,0 +1,10 @@
+.nav_bar_log_panel {
+    font-size: 40px;
+    text-align: center;
+
+    color: white;
+    text-transform: uppercase;
+    border: 5px solid #6F4A8E;
+    background: #6F4A8E;
+    margin-bottom: 20px;
+}

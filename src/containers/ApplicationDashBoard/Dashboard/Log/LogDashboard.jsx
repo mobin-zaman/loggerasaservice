@@ -1,7 +1,5 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {getAllLogs, getApplicationById, getLatestLogByCount, getLogCount} from "../../../../apiServices/apiService";
-import ApplicationListEntry from "../../ApplicationListEntry";
-import LogModal from "./LogPanel/LogEntry/LogModal";
 import GeneralNavBar from "../../../GeneralNavBar/GeneralNavBar";
 import LogPanel from "./LogPanel/LogPanel";
 import style from './style.module.css';
@@ -56,7 +54,7 @@ const LogDashBoard = ({match}) => {
                 if(response.status === 200) {
                     console.log("log count: : :", response.data.log_count);
                     setLogCount(response.data.log_count);
-                    setCurrentCount(response.data.log_count);
+                    // setCurrentCount(response.data.log_count);
                 }
             } catch(e){
                console.log("Error: ",e);
@@ -64,7 +62,7 @@ const LogDashBoard = ({match}) => {
         }
         getApplication();
         getCount();
-        getLogs();
+        // getLogs();
     }, [])
 
 
@@ -87,7 +85,7 @@ const LogDashBoard = ({match}) => {
 
 
     useEffect(() => {
-        if(difCount !== 0) {
+        if(difCount > 0) {
             const getLogByCount = async (count) => {
                 try {
                    const response = await getLatestLogByCount(application.id,count+20);
