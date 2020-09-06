@@ -24,7 +24,7 @@ const ApplicationInfo = ({match}) => {
     logger.info("example information");
 
     //warning type log
-    logger.warn(\`giving you warning}\`);
+    logger.warn(\`giving you warning\`);
 
     //error type log
     logger.error("error: ", exampleException);
