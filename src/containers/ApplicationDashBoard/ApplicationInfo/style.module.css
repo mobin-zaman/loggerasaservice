@@ -29,19 +29,41 @@
 }
 
 .check_logs_button {
-    background-color: #6F4A8E;
+    background-color: #221f3b;
     color: white;
     padding: 14px 20px;
     cursor: pointer;
-    width: 40%;
-    border: solid 5px #221F3B;
+    width: 20%;
+    border: solid 5px #6f4a8e;
     font-size: medium;
     font-family: Open Sans, monospace;
-    margin: 10px;
+    margin-left : 50px;
+    margin-bottom: 50px;
+
 }
 
 .toast_notification {
     /*text-align: left;*/
     font-size: medium;
     display: inline-block;
+}
+
+.nav_elements {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin-left: 250px;
+
+}
+
+.nav_elements:hover {
+   background-color: #221f3b;
+}
+
+
+.nav_bar {
+    margin: 30px;
+    background: #6f4a8e;
+    border-radius: 5px;
+    overflow: auto;
 }
