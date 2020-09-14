@@ -52,8 +52,8 @@
     font-size: 30px;
     color: white;
     cursor: pointer;
-    margin-left: 250px;
-
+    margin-left: 350px;
+    padding: 30px;
 }
 
 .nav_elements:hover {
@@ -66,4 +66,5 @@
     background: #6f4a8e;
     border-radius: 5px;
     overflow: auto;
+
 }

@@ -83,10 +83,8 @@ const ApplicationInfo = ({match}) => {
             {application.name}
         </div>
 
-            {/*<button className={style.check_logs_button} onClick={transitToLogPage}>Check Logs!</button>*/}
-            {/*<button className={style.check_logs_button} onClick={transitToStatPage}> Check Log Stats!</button>*/}
 
-            <nav className={style.nav_bar}><span className={style.nav_elements}>Integrate</span> <span className={style.nav_elements}>Logs</span> <span className={style.nav_elements}>Stats</span></nav>
+            <nav className={style.nav_bar}><span className={style.nav_elements} onClick={transitToLogPage}>Logs</span> <span className={style.nav_elements} onClick={transitToStatPage}>Stats</span></nav>
 
             <div className={style.description}>
                 {application.description}
