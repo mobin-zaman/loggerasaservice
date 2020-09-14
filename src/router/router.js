@@ -47,7 +47,11 @@ const AppRouter = () => (
       component={LogDashboard}
     />
 
-     <Route exact path="/applications/stats/:applicationId" component={StatsDashboard}/>
+    <Route
+      exact
+      path="/applications/stats/:applicationId"
+      component={StatsDashboard}
+    />
     {/*</RequireAuth>*/}
   </Switch>
 );

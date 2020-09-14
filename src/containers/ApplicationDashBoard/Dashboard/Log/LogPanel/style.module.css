@@ -10,6 +10,7 @@
     text-align: center;
     padding: 5px;
     font-family: 'Consolas', serif;
+    border-radius: 5px;
 }
 
 .log_type_warn {
@@ -18,6 +19,7 @@
     text-align: center;
     padding: 5px;
     font-family: 'Consolas', serif;
+    border-radius: 5px;
 }
 
 .log_type_info {
@@ -26,6 +28,7 @@
     text-align: center;
     padding: 5px;
     font-family: 'Consolas', serif;
+    border-radius: 5px;
 }
 
 .log_type_others {
@@ -34,6 +37,7 @@
     text-align: center;
     padding: 5px;
     font-family: 'Consolas', serif;
+    border-radius: 5px;
 }
 
 .log_text_style {

@@ -44,7 +44,7 @@ const ApplicationInfo = ({match}) => {
 
     const notify = (text) => {
         setCopied(true);
-        toast(text);
+        toast.dark(text);
     };
 
     useEffect(() => {
@@ -82,6 +82,10 @@ const ApplicationInfo = ({match}) => {
         <div className={style.application_name}>
             {application.name}
         </div>
+
+            <button className={style.check_logs_button} onClick={transitToLogPage}>Check Logs!</button>
+            <button className={style.check_logs_button} onClick={transitToStatPage}> Check Log Stats!</button>
+
             <div className={style.description}>
                 {application.description}
             </div>
@@ -113,13 +117,13 @@ const ApplicationInfo = ({match}) => {
                     <div className={style.code_entry_style}> example usage</div>
                     <div className={style.code_style}><SyntaxHighlighter language="javascript" style={highlightStyle} >{exampleCode}</SyntaxHighlighter></div>
                 </div>
-                {copied ? <div><ToastContainer position="bottom-right"/></div>: null}
+                {/*<div className={style.toast_notification}>*/}
             </div>
 
-
-            <button className={style.check_logs_button} onClick={transitToLogPage}>Check Logs!</button>
-            <button className={style.check_logs_button} onClick={transitToStatPage}> Check Log Stats!</button>
-            </>
+            <span>
+            {copied ? <ToastContainer position="bottom-right"/>: null}
+            </span>
+           </>
     )
 
 }

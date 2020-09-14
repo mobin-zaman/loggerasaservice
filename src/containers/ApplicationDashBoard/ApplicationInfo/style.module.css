@@ -39,3 +39,9 @@
     font-family: Open Sans, monospace;
     margin: 10px;
 }
+
+.toast_notification {
+    /*text-align: left;*/
+    font-size: medium;
+    display: inline-block;
+}
