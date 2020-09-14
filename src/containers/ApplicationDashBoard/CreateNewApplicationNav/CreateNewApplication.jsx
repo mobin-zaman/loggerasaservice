@@ -17,7 +17,7 @@ const CreateNewApplication = () => {
 
     return (
     <div className={style.div_style}>
-        <span className={style.text_style}>Want to add a new application? </span><br/>
+        <span className={style.text_style}>Want to add a new application? </span>
         <button className={style.button_style} onClick={handleOnClick}> Create</button>
     </div>
     )

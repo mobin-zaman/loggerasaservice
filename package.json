@@ -21,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-syntax-highlighter": "^13.5.3",
+    "react-toastify": "^6.0.8",
     "react-virtualized": "^9.22.2",
     "shortid": "^2.2.15"
   },

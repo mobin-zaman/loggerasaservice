@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from "react";
 import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
 import {getApplicationById} from "../../../apiServices/apiService";
-import style from "./style.module.css";
 import {useHistory} from "react-router";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import ClipboardIcon from "react-clipboard-icon";
 import  {Prism as SyntaxHighlighter}  from 'react-syntax-highlighter';
 import { atomDark as highlightStyle} from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import style from "./style.module.css";
+
 const ApplicationInfo = ({match}) => {
 
     const [application, setApplication] = useState({});
@@ -35,6 +40,12 @@ const ApplicationInfo = ({match}) => {
 
     `);
     const history = useHistory();
+    const [copied, setCopied] = useState(true);
+
+    const notify = (text) => {
+        setCopied(true);
+        toast(text);
+    };
 
     useEffect(() => {
         async function getApplication() {
@@ -76,24 +87,33 @@ const ApplicationInfo = ({match}) => {
             </div>
             <div className={style.code_entry_style}>
                 api key: <span className={style.code_style}><code>{application.api_key}</code></span>
-                <span>   <ClipboardIcon size={30} /></span>
+                <span>
+                    <CopyToClipboard text={application.api_key} onCopy={() => notify("api key copied to clipboard")}>
+                    <ClipboardIcon size={30}/>
+                    </CopyToClipboard>
+                </span>
             </div>
             <div>
             <div className={style.code_entry_style}>To add the logger client to you project simply run:</div>
                 <div className={style.code_entry_style}>
                 <span>for npm </span>
                 <span className={style.code_style}><code>npm i logwithease </code></span>
+                    <CopyToClipboard text={"npm i logwitease"} onCopy={() => notify("npm command copied to clipboard")}>
                     <span>   <ClipboardIcon size={40} /></span>
+                    </CopyToClipboard>
                 </div>
                 <div className={style.code_entry_style}>
                 <span>for yarn</span>
                 <span className={style.code_style}><code>yarn add logwithease</code></span>
+                    <CopyToClipboard text={"yarn add logwithease"} onCopy={() => notify("yarn command copied to clipboard")}>
                     <span>   <ClipboardIcon size={40} /></span>
+                    </CopyToClipboard>
                 </div>
                 <div>
                     <div className={style.code_entry_style}> example usage</div>
                     <div className={style.code_style}><SyntaxHighlighter language="javascript" style={highlightStyle} >{exampleCode}</SyntaxHighlighter></div>
                 </div>
+                {copied ? <div><ToastContainer position="bottom-right"/></div>: null}
             </div>
 
 

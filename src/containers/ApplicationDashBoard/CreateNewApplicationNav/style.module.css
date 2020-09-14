@@ -3,19 +3,30 @@
     text-align: center;
     color: white;
     border:  #6f4a8e solid;
+    background-color: #6f4a8e;
+    overflow: auto;
 }
 
 .text_style {
     color: white;
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 15px;
+    float: left;
 }
 
 .button_style {
     background-color: #221f3b;
     color: white;
-    padding: 14px 20px;
     cursor: pointer;
-    width: 10%;
-    border: none;
+    width: 7%;
+    border: #6f4a8e;
+    border-radius: 10px;
     font-size: medium;
     font-family: Open Sans, monospace;
+    display: inline-block;
+    float: right;
+    margin-left: 10px;
+
 }
+

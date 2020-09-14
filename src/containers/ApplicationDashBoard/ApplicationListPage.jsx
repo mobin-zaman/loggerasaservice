@@ -59,7 +59,6 @@ export default function ApplicationListPage() {
             {/*first let's try you don't have any app yet*/}
             {/*{ applications && applications.length === 0 ?  (*/}
             <CreateNewApplicationNav/>
-            there will be a button for log, another one for info
             {!loading ? (
 
                 <div>
