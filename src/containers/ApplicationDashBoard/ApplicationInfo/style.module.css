@@ -64,6 +64,7 @@
 .nav_bar {
     margin: 30px;
     background: #6f4a8e;
+    border: #221f3b solid;
     border-radius: 5px;
     overflow: auto;
 

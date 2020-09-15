@@ -34,18 +34,18 @@ const LogDashBoard = ({match}) => {
         }
 
         //to get initial log list
-       async function getLogs(){
-          try{
-              const response = await getAllLogs(match.params.applicationId);
-
-              if(response.status === 200) {
-                  console.log("log list: : :", response.data.data);
-                  setLogs(response.data.data);
-              }
-          } catch (e) {
-              console.log("Error: ", e);
-          }
-       }
+       // async function getLogs(){
+       //    try{
+       //        const response = await getAllLogs(match.params.applicationId);
+       //
+       //        if(response.status === 200) {
+       //            console.log("log list: : :", response.data.data);
+       //            setLogs(response.data.data);
+       //        }
+       //    } catch (e) {
+       //        console.log("Error: ", e);
+       //    }
+       // }
 
         async function getCount() {
             try {

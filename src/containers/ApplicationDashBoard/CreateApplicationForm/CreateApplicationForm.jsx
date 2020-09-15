@@ -1,9 +1,8 @@
 import React, {useState} from "react";
-import style from "../../IndexPages/style.module.css";
 import GeneralNavBar from "../../GeneralNavBar/GeneralNavBar";
 import {addApplication} from "../../../apiServices/apiService";
-import ApplicationInfo from "../ApplicationInfo/ApplicationInfo";
 import {useHistory} from "react-router";
+import style from "./style.module.css";
 
 const CreateApplicationFrom = () => {
 
@@ -47,7 +46,7 @@ const CreateApplicationFrom = () => {
         <div>
             <div className={style.container}>
 
-                <h1> Create New App</h1>
+                <h1 className={style.create_app_form_header}> Create New App</h1>
 
 
                 <form onSubmit={handleSubmit}>
@@ -71,13 +70,13 @@ const CreateApplicationFrom = () => {
                     </label>
                     <input
                         type="text"
-                        placeholder="Enter description of the application (optional)"
+                        placeholder="Enter description of the application"
                         name="description"
                         required
                         onChange={(e) => setDescription(e.target.value)}
                     />
 
-                    <button type="submit" disabled={submittedDisabled}>Create</button>
+                    <button className={style.application_submit_button} type="submit" disabled={submittedDisabled}>Create</button>
 
                 </form>
             </div>
