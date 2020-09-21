@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import style from "./style.module.css";
+import DownloadLogModal from "./DownloadLogModal/DownloadLogModal";
 
 const ApplicationInfo = ({match}) => {
 
@@ -41,6 +42,7 @@ const ApplicationInfo = ({match}) => {
     `);
     const history = useHistory();
     const [copied, setCopied] = useState(true);
+    const [isDownloadLogModalOpen, setDownloadLogModalOpen] = useState(false);
 
     const notify = (text) => {
         setCopied(true);
@@ -84,7 +86,7 @@ const ApplicationInfo = ({match}) => {
         </div>
 
 
-            <nav className={style.nav_bar}><span className={style.nav_elements} onClick={transitToLogPage}>Logs</span> <span className={style.nav_elements} onClick={transitToStatPage}>Stats</span></nav>
+            <nav className={style.nav_bar}><span className={style.nav_elements} onClick={transitToLogPage}>Logs</span> <span className={style.nav_elements} onClick={transitToStatPage}>Stats</span><span onClick={() => setDownloadLogModalOpen(true)} className={style.nav_elements}>Download Logs</span></nav>
 
             <div className={style.description}>
                 {application.description}
@@ -118,6 +120,8 @@ const ApplicationInfo = ({match}) => {
                     <div className={style.code_style}><SyntaxHighlighter language="javascript" style={highlightStyle} >{exampleCode}</SyntaxHighlighter></div>
                 </div>
                 {/*<div className={style.toast_notification}>*/}
+                {isDownloadLogModalOpen && <DownloadLogModal isOpen={isDownloadLogModalOpen} onCancel={()=>setDownloadLogModalOpen(false)}/>}
+
             </div>
 
             <span>

@@ -1,0 +1,38 @@
+{
+  "name": "@bit/react-bootstrap.react-bootstrap.dropdown",
+  "version": "1.0.0",
+  "homepage": "https://bit.dev/react-bootstrap/react-bootstrap/dropdown",
+  "main": "dist/src/Dropdown.js",
+  "componentId": {
+    "scope": "react-bootstrap.react-bootstrap",
+    "name": "dropdown",
+    "version": "1.0.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types-extra": "^1.1.0",
+    "prop-types": "^15.6.2",
+    "react-context-toolbox": "^2.0.2",
+    "react-overlays": "^1.0.0",
+    "@bit/react-bootstrap.react-bootstrap.dropdown-item": "1.0.0",
+    "@bit/react-bootstrap.react-bootstrap.dropdown-menu": "1.0.0",
+    "@bit/react-bootstrap.react-bootstrap.dropdown-toggle": "1.0.0",
+    "@bit/react-bootstrap.react-bootstrap.selectable-context": "1.0.0",
+    "@bit/react-bootstrap.react-bootstrap.theme-provider": "1.0.0",
+    "@bit/react-bootstrap.react-bootstrap.create-chained-function": "1.0.0",
+    "@bit/react-bootstrap.react-bootstrap.create-with-bs-prefix": "1.0.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.8.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.3.0",
+    "react-dom": ">=16.3.0"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.0"
+    }
+  }
+}
