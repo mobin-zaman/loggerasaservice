@@ -120,7 +120,7 @@ const ApplicationInfo = ({match}) => {
                     <div className={style.code_style}><SyntaxHighlighter language="javascript" style={highlightStyle} >{exampleCode}</SyntaxHighlighter></div>
                 </div>
                 {/*<div className={style.toast_notification}>*/}
-                {isDownloadLogModalOpen && <DownloadLogModal isOpen={isDownloadLogModalOpen} onCancel={()=>setDownloadLogModalOpen(false)}/>}
+                {isDownloadLogModalOpen && <DownloadLogModal isOpen={isDownloadLogModalOpen} onCancel={()=>setDownloadLogModalOpen(false)} applicationId={application.id} applicationName={application.name}/>}
 
             </div>
 
