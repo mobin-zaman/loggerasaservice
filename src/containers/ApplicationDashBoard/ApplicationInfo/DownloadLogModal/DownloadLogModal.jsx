@@ -22,7 +22,6 @@ const DownloadLogModal = ({isOpen, onCancel, applicationId, applicationName}) =>
     useEffect(() =>{
 
         const getLogs = async () => {
-            setLogsLoading(true);
 
             const downloadedLogs  = await getAllLogs(applicationId);
 
@@ -34,18 +33,30 @@ const DownloadLogModal = ({isOpen, onCancel, applicationId, applicationName}) =>
 
 
 
-            setLogsLoading(false);
         }
 
+        setLogsLoading(true);
         getLogs();
+        setLogsLoading(false);
 
     }, [applicationId]);
 
-    useEffect(() => {
-        console.log("logs loaded: ", logs);
 
-    }, [logs]);
+    const downloadFile = async () => {
 
+        const myData = logs;
+        const fileName = applicationName;
+
+        const json = JSON.stringify(myData);
+        const blob = new Blob([json],{type:'application/json'});
+        const href = await URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = href;
+        link.download = fileName + ".json";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
 
 
     return (
@@ -56,7 +67,7 @@ const DownloadLogModal = ({isOpen, onCancel, applicationId, applicationName}) =>
                 (
                     <>
                     <span><CsvDownload data={logs} filename={applicationName+".csv"}>Download CSV</CsvDownload></span>
-                    <span><button>Download Json</button></span>
+                    <span><button onClick={downloadFile}>Download Json</button></span>
                     <button className={style.modal_button} type ="button" onClick={onCancel}>Back</button>
                     </>
                 ): (
