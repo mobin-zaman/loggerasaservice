@@ -3,6 +3,7 @@ import {getAllLogs, getApplicationById, getLatestLogByCount, getLogCount} from "
 import GeneralNavBar from "../../../GeneralNavBar/GeneralNavBar";
 import style from './style.module.css';
 import StatPanel from "./StatPanel/StatPanel";
+import {useHistory} from "react-router";
 
 
 const StatsDashboard = ({match}) => {
@@ -13,6 +14,7 @@ const StatsDashboard = ({match}) => {
     const [logCount, setLogCount] = useState('');
     const [difCount, setDifCount] = useState(0);
     const [currentCount, setCurrentCount] = useState(0);
+    const history = useHistory();
 
 
     useEffect(() => {
@@ -31,6 +33,7 @@ const StatsDashboard = ({match}) => {
 
             }  catch(e) {
                 console.log("Error: ", e);
+                history.push("/");
             }
         }
 
@@ -45,6 +48,7 @@ const StatsDashboard = ({match}) => {
                 }
             } catch (e) {
                 console.log("Error: ", e);
+                history.push("/");
             }
         }
 
@@ -59,6 +63,7 @@ const StatsDashboard = ({match}) => {
                 }
             } catch(e){
                 console.log("Error: ",e);
+                history.push("/");
             }
         }
         getApplication();

@@ -3,6 +3,7 @@ import {getAllLogs, getApplicationById, getLatestLogByCount, getLogCount} from "
 import GeneralNavBar from "../../../GeneralNavBar/GeneralNavBar";
 import LogPanel from "./LogPanel/LogPanel";
 import style from './style.module.css';
+import {useHistory} from "react-router";
 
 const LogDashBoard = ({match}) => {
 
@@ -12,6 +13,7 @@ const LogDashBoard = ({match}) => {
     const [logCount, setLogCount] = useState('');
     const [difCount, setDifCount] = useState(0);
     const [currentCount, setCurrentCount] = useState(0);
+    const history = useHistory();
 
 
     useEffect(() => {
@@ -30,6 +32,7 @@ const LogDashBoard = ({match}) => {
 
             }  catch(e) {
                 console.log("Error: ", e);
+                history.push("/");
             }
         }
 
@@ -58,6 +61,7 @@ const LogDashBoard = ({match}) => {
                 }
             } catch(e){
                console.log("Error: ",e);
+               history.push("/");
             }
         }
         getApplication();
