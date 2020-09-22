@@ -21,6 +21,10 @@ export function getBearerToken() {
   return `Bearer ${token}`;
 }
 
+export function LogOut() {
+  localStorage.clear();
+}
+
 export async function getAuthenticationHeader() {
   // console.log("get bearer token: ", getBearerToken());
   const config = {
