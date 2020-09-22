@@ -66,8 +66,8 @@ const DownloadLogModal = ({isOpen, onCancel, applicationId, applicationName}) =>
             {!logsLoading ?
                 (
                     <>
-                    <span><CsvDownload data={logs} filename={applicationName+".csv"}>Download CSV</CsvDownload></span>
-                    <span><button onClick={downloadFile}>Download Json</button></span>
+                    <span><CsvDownload data={logs} filename={applicationName+".csv"} className={style.download_buttons}>Download CSV</CsvDownload></span>
+                    <span><button onClick={downloadFile} className={style.download_buttons}>Download Json</button></span>
                     <button className={style.modal_button} type ="button" onClick={onCancel}>Back</button>
                     </>
                 ): (

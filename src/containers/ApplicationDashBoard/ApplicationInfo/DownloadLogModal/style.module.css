@@ -1,0 +1,29 @@
+.download_buttons {
+    background-color: #221f3b;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    width: 20%;
+    border: solid 5px #6f4a8e;
+    font-size: medium;
+    font-family: Open Sans, monospace;
+    margin-left : 220px;
+    margin-bottom: 50px;
+    margin-top:100px;
+
+}
+
+.modal_button {
+    background-color: #6F4A8E;
+    color: white;
+
+    padding: 14px 20px;
+    cursor: pointer;
+    width: 20%;
+    border: none;
+    font-size: medium;
+    font-family: Open Sans, monospace;
+
+    margin-top: 200px;
+    margin-left: 450px;
+}
