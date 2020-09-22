@@ -64,7 +64,7 @@ const ApplicationInfo = ({match}) => {
 
 
            }  catch(e) {
-               console.log("Error: ", e);
+               history.push("/");
            }
         }
         getApplication();
